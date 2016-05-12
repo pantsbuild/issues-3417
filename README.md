@@ -1,8 +1,8 @@
-# Bootstrapping an existing `src/go/src` layout repo with Pant.
+# Bootstrapping an existing `src/go/src` layout repo with pants.
 
 1. First seed.
 
-```
+    ```
 $ ./seed.sh
 
 22:41:55 00:00 [main]
@@ -27,7 +27,7 @@ FAILURE: Un-pinned (FLOATING) Go remote libraries detected.
 
 2. Pin `github.com/gorilla/mux`.
 
-```diff
+    ```diff
 $ git diff
 diff --git a/3rdparty/go/github.com/gorilla/mux/BUILD b/3rdparty/go/github.com/gorilla/mux/BUILD
 index 5d283d4..38ed297 100644
@@ -43,7 +43,7 @@ index 5d283d4..38ed297 100644
 
 3. First try to build the binary.
 
-```
+    ```
 $ ./pants binary ::
 
 22:44:57 00:00 [main]
@@ -93,7 +93,7 @@ FAILURE: Failed to resolve transitive Go remote dependencies.
 
 4. Second seed.
 
-```
+    ```
 $ mkdir -p 3rdparty/go/github.com/gorilla/context && echo  "go_remote_library()" > 3rdparty/go/github.com/gorilla/context/BUILD
 $ ./seed.sh
 
@@ -120,7 +120,7 @@ FAILURE: Un-pinned (FLOATING) Go remote libraries detected.
 
 5. Pin `github.com/gorilla/context`.
 
-```diff
+    ```diff
 $ git diff
 diff --git a/3rdparty/go/github.com/gorilla/context/BUILD b/3rdparty/go/github.com/gorilla/context/BUILD
 index 5d283d4..38ed297 100644
@@ -136,7 +136,7 @@ index 5d283d4..38ed297 100644
 
 6. Succeed at building the binary.
 
-```
+    ```
 $ ./pants binary ::
 
 22:48:21 00:00 [main]
