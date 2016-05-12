@@ -1,6 +1,5 @@
 package library
 
 func HelperFunc() string {
-  return "Hello, World"
+	return "Hello, World"
 }
-

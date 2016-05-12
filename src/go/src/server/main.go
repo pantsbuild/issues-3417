@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"html"
-	"net/http"
-        "library"
 	"github.com/gorilla/mux"
+	"html"
+	"library"
+	"net/http"
 )
 
 func main() {
-        fmt.Printf(library.HelperFunc())
+	fmt.Printf(library.HelperFunc())
 	r := mux.NewRouter()
 	r.HandleFunc("/", func(rw http.ResponseWriter, req *http.Request) {
 		fmt.Fprintf(rw, "Hello, %q", html.EscapeString(req.URL.Path))
